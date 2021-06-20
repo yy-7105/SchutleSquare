@@ -162,7 +162,7 @@ while running:
             elif event.type == pygame.QUIT:
                 pygame.quit()
 
-            pygame.display.update()
+        pygame.display.update()
 
     if not rendered:
         screen.fill(dark_grey)
@@ -179,6 +179,8 @@ while running:
             print(temp)
             if temp:
                 curr = temp
+                gen_text_window(f'current:', 25, (660, 25), white, dark_grey)
+                gen_text_window(str(curr - 1), 25, (660, 50), white, dark_grey)
             if curr > size ** 2:
                 time_when_finished = pygame.time.get_ticks()/1000 - t1
                 center = (WIDTH // 2, HEIGHT // 2)
@@ -203,7 +205,6 @@ while running:
 
     gen_text_window(time_string, 32, (WIDTH // 2, title_height // 2),
                     white, dark_grey)
-
     gen_text_window('Press R to reset', 20, (80, 25), white, dark_grey)
 
     pygame.display.update()
